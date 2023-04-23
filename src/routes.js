@@ -63,7 +63,7 @@ const routes = [
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/pedidos",
     component: <Pedidos />,
-  },
+  } /* ,
   {
     type: "collapse",
     name: "Dashboard",
@@ -103,7 +103,7 @@ const routes = [
     icon: <Icon fontSize="small">assignment</Icon>,
     route: "/authentication/sign-up",
     component: <SignUp />,
-  },
+  }, */,
 ];
 
 export default routes;
