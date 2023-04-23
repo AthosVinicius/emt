@@ -36,13 +36,9 @@ Coded by www.creative-tim.com
 */
 
 // Material Dashboard 2 React layouts
-import Dashboard from "layouts/dashboard";
-import Tables from "layouts/tables";
-import Notifications from "layouts/notifications";
-import Profile from "layouts/profile";
-import SignUp from "layouts/authentication/sign-up";
 import Clientes from "layouts/clientes";
 import Pedidos from "layouts/pedidos";
+import Perfil from "layouts/perfil/perfilCliente";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -63,7 +59,24 @@ const routes = [
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/pedidos",
     component: <Pedidos />,
-  } /* ,
+  },
+  {
+    type: "collapse",
+    name: "Perfil do Cliente",
+    key: "perfil",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/perfil/perfilCliente",
+    component: <Perfil />,
+  },
+  {
+    type: "collapse",
+    name: "Perfil do Cliente",
+    key: "perfil",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/perfil/perfilCliente",
+    component: <Perfil />,
+  }
+   /* ,
   {
     type: "collapse",
     name: "Dashboard",
