@@ -21,24 +21,23 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 
 const pedido = {
-    data: "23/04/2023",
-    paoBeijoVeganoBatataDocePadrao: 1,
-    paoBeijoVeganoBatataDoceGraos: 2,
-    biscoitoSuico: 1,
-    paoBeijoVeganoBatataDocePadrao1kg: 0,
-    paoBeijoVeganoBatataDoceGraos1kg: 0,
-    paoQueijo: 1,
-    biscoitoFerradura: 1,
-    idPessoa: "61912345678",
-    endereco: "Rua 1 casa 12",
-    cidade: "Cruzeiro",
-    nome: "Maria",
-    valorTotalCompra: "127",
-    inPagamento: true,
-    inEntregue: false,
-    dataEntrega: "25/04/2023",
-  };
-  
+  data: "23/04/2023",
+  paoBeijoVeganoBatataDocePadrao: 1,
+  paoBeijoVeganoBatataDoceGraos: 2,
+  biscoitoSuico: 1,
+  paoBeijoVeganoBatataDocePadrao1kg: 0,
+  paoBeijoVeganoBatataDoceGraos1kg: 0,
+  paoQueijo: 1,
+  biscoitoFerradura: 1,
+  idPessoa: "61912345678",
+  endereco: "Rua 1 casa 12",
+  cidade: "Cruzeiro",
+  nome: "Maria",
+  valorTotalCompra: "127",
+  inPagamento: true,
+  inEntregue: false,
+  dataEntrega: "25/04/2023",
+};
 
 export default function data() {
   const Cliente = ({ name, telefone }) => (
@@ -74,6 +73,36 @@ export default function data() {
     );
   };
 
+  const Cidade = ({ nome }) => {
+    switch (nome) {
+      case "Sobradinho":
+        return (
+          <MDBadge
+            badgeContent={nome}
+            color="blue"
+            variant="gradient"
+            size="sm"
+          />
+        );
+      case "Lago Norte":
+        return (
+          <MDBadge
+            badgeContent={nome}
+            color="error"
+            variant="gradient"
+            size="sm"
+          />
+        );
+      default:
+        <MDBadge
+          badgeContent="Não-Definido"
+          color="light"
+          variant="gradient"
+          size="sm"
+        />;
+    }
+  };
+
   return {
     columns: [
       { Header: "cliente", accessor: "cliente", align: "left" },
@@ -87,6 +116,11 @@ export default function data() {
       {
         cliente: (
           <Cliente name="Vitor Martins" telefone="+55 (61) 99669-2204" />
+        ),
+        cidade: (
+          <MDBox>
+            <Cidade nome={"Sobradinho"} />
+          </MDBox>
         ),
         dataEntrega: pedido.dataEntrega,
         stPagamento: <Indicador indicador={pedido.inPagamento} />,
