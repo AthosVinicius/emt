@@ -13,104 +13,84 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-// react-router-dom components
-import { Link } from "react-router-dom";
-
 // @mui material components
-import Card from "@mui/material/Card";
-import Checkbox from "@mui/material/Checkbox";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
-import MDInput from "components/MDInput";
+
+// Material Dashboard 2 React example components
+import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
+import DashboardNavbar from "examples/Navbars/DashboardNavbar";
+import Footer from "examples/Footer";
+
+// Data
 import MDButton from "components/MDButton";
+import { Checkbox } from "@mui/material";
+import MDInput from "components/MDInput";
 
-// Authentication layout components
-import CoverLayout from "layouts/authentication/components/CoverLayout";
-
-// Images
-import bgImage from "assets/images/bg-sign-up-cover.jpeg";
-
-function Cadastro() {
+function Tables() {
   return (
-    <CoverLayout image={bgImage}>
-      <Card>
-        <MDBox
-          variant="gradient"
-          bgColor="info"
-          borderRadius="lg"
-          coloredShadow="success"
-          mx={2}
-          mt={-3}
-          p={3}
-          mb={1}
-          textAlign="center"
-        >
-          <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-            Join us today
-          </MDTypography>
-          <MDTypography display="block" variant="button" color="white" my={1}>
-            Enter your email and password to register
-          </MDTypography>
-        </MDBox>
-        <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
-            <MDBox mb={2}>
-              <MDInput type="text" label="Name" variant="standard" fullWidth />
-            </MDBox>
-            <MDBox mb={2}>
-              <MDInput type="email" label="Email" variant="standard" fullWidth />
-            </MDBox>
-            <MDBox mb={2}>
-              <MDInput type="password" label="Password" variant="standard" fullWidth />
-            </MDBox>
-            <MDBox display="flex" alignItems="center" ml={-1}>
-              <Checkbox />
-              <MDTypography
-                variant="button"
-                fontWeight="regular"
-                color="text"
-                sx={{ cursor: "pointer", userSelect: "none", ml: -1 }}
-              >
-                &nbsp;&nbsp;I agree the&nbsp;
-              </MDTypography>
-              <MDTypography
-                component="a"
-                href="#"
-                variant="button"
-                fontWeight="bold"
-                color="info"
-                textGradient
-              >
-                Terms and Conditions
-              </MDTypography>
-            </MDBox>
-            <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
-                sign in
-              </MDButton>
-            </MDBox>
-            <MDBox mt={3} mb={1} textAlign="center">
-              <MDTypography variant="button" color="text">
-                Already have an account?{" "}
-                <MDTypography
-                  component={Link}
-                  to="/authentication/sign-in"
-                  variant="button"
-                  color="info"
-                  fontWeight="medium"
-                  textGradient
-                >
-                  Sign In
-                </MDTypography>
-              </MDTypography>
-            </MDBox>
+    <DashboardLayout>
+      <DashboardNavbar />
+      <MDBox pt={6} pb={3}>
+      <MDBox
+        mx={2}
+        mt={-3}
+        py={3}
+        px={2}
+        variant="gradient"
+        bgColor="info"
+        borderRadius="lg"
+        coloredShadow="info"
+      >
+        <MDTypography variant="h1" color="white" alignItems="center">
+          Cadastrar Cliente
+        </MDTypography>
+      </MDBox>
+      <MDBox pt={4} pb={3} px={3}>
+        <MDBox component="form" role="form">
+          <MDBox mb={2}>
+            <MDInput type="text" label="Nome" variant="standard"  />
+          </MDBox>
+          <MDBox mb={2}>
+            <MDInput type="tel" label="Telefone" variant="standard" />
+          </MDBox>
+          <MDBox mb={2}>
+            <MDInput type="text" label="Endereço" variant="standard" />
+          </MDBox>
+          <MDBox mb={2}>
+            <MDInput type="number" label="CEP" variant="standard" />
+          </MDBox>
+          <MDBox mb={2}>
+            <Checkbox />
+            <MDTypography variant="button" fontWeight="regular" color="text">
+              PJ?
+            </MDTypography>
+            <Checkbox />
+            <MDTypography variant="button" fontWeight="regular" color="text">
+              Recorrente?
+            </MDTypography>
+          <MDBox mb={2}>
+            <MDInput type="text" label="CPF ou CNPJ (Opcional)" variant="standard" />
+          </MDBox>
+          <MDBox mb={2}>
+            <MDInput type="text" label="Observação" variant="standard" fullheight />
           </MDBox>
         </MDBox>
-      </Card>
-    </CoverLayout>
+          <MDBox display="flex" alignItems="center" ml={-1}>
+          </MDBox>
+          <MDBox mt={4} mb={1}>
+            <MDButton variant="gradient" color="info">
+              Cadastrar Cliente
+            </MDButton>
+          </MDBox>
+        </MDBox>
+      </MDBox>
+      </MDBox>
+      <Footer />
+    </DashboardLayout>
   );
 }
 
-export default Cadastro;
+export default Tables;
