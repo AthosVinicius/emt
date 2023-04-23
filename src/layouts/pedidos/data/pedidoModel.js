@@ -74,6 +74,36 @@ export default function data() {
     );
   };
 
+  const Cidade = ({ nome }) => {
+    switch (nome) {
+      case "Sobradinho":
+        return (
+          <MDBadge
+            badgeContent={nome}
+            color="blue"
+            variant="gradient"
+            size="sm"
+          />
+        );
+      case "Lago Norte":
+        return (
+          <MDBadge
+            badgeContent={nome}
+            color="error"
+            variant="gradient"
+            size="sm"
+          />
+        );
+      default:
+        <MDBadge
+          badgeContent="Não-Definido"
+          color="light"
+          variant="gradient"
+          size="sm"
+        />;
+    }
+  };
+
   return {
     columns: [
       { Header: "cliente", accessor: "cliente", align: "left" },
@@ -88,6 +118,7 @@ export default function data() {
         cliente: (
           <Cliente name="Vitor Martins" telefone="+55 (61) 99669-2204" />
         ),
+        cidade: <Cidade nome={"Sobradinho"} />,
         dataEntrega: pedido.dataEntrega,
         stPagamento: <Indicador indicador={pedido.inPagamento} />,
         stEntregue: <Indicador indicador={pedido.inEntregue} />,

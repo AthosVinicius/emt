@@ -71,29 +71,36 @@ export default function data() {
     switch (nome) {
       case "Sobradinho":
         return (
-          <MDBadge
-            badgeContent={nome}
-            color="blue"
-            variant="gradient"
-            size="sm"
-          />
+          <MDBox>
+            <MDBadge
+              badgeContent={nome}
+              color="blue"
+              variant="gradient"
+              size="sm"
+            />
+          </MDBox>
         );
       case "Lago Norte":
         return (
+          <MDBox>
+            <MDBadge
+              badgeContent={nome}
+              color="error"
+              variant="gradient"
+              size="sm"
+            />
+          </MDBox>
+        );
+      default:
+        <MDBox>
           <MDBadge
-            badgeContent={nome}
-            color="error"
+            badgeContent="Não-Definido"
+            color="light"
             variant="gradient"
             size="sm"
           />
-        );
-      default:
-        <MDBadge
-          badgeContent="Não-Definido"
-          color="light"
-          variant="gradient"
-          size="sm"
-        />;
+          ;
+        </MDBox>;
     }
   };
 
@@ -101,11 +108,11 @@ export default function data() {
     columns: [
       { Header: "cliente", accessor: "cliente", align: "left" },
       { Header: "endereço", accessor: "endereco", align: "left" },
-      { Header: "cep", accessor: "cep", align: "center"},
+      { Header: "cep", accessor: "cep", align: "center" },
       { Header: "recorrente", accessor: "recorrente", align: "center" },
       { Header: "Pessoa Jurídica", accessor: "inPJ", align: "center" },
       { Header: "cidade", accessor: "cidade", align: "center" },
-      { Header: "action", accessor: "action", align: "center", isSorted: false},
+      { Header: "action", accessor: "action", align: "center" },
     ],
 
     rows: [
@@ -113,17 +120,11 @@ export default function data() {
         cliente: (
           <Cliente name="Vitor Martins" telefone="+55 (61) 99669-2204" />
         ),
-        endereco: (
-          <Endereco endereco="QMS 52 Módulo B casa 37" />
-        ),
+        endereco: <Endereco endereco="QMS 52 Módulo B casa 37" />,
         cep: "73080-320",
         recorrente: <Indicador indicador={true} />,
         inPJ: <Indicador indicador={false} />,
-        cidade: (
-          <MDBox>
-            <Cidade nome={"Sobradinho"} />
-          </MDBox>
-        ),
+        cidade: <Cidade nome={"Sobradinho"} />,
         action: (
           <MDTypography
             component="a"
@@ -144,11 +145,7 @@ export default function data() {
         cep: "73080-000",
         recorrente: <Indicador indicador={false} />,
         inPJ: <Indicador indicador={true} />,
-        cidade: (
-          <MDBox>
-            <Cidade nome={"Lago Norte"} />
-          </MDBox>
-        ),
+        cidade: <Cidade nome={"Lago Norte"} />,
         action: (
           <MDTypography
             component="a"
